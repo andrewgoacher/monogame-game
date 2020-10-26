@@ -4,29 +4,35 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game.Core
 {
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public sealed class GameCore : Microsoft.Xna.Framework.Game, IGameCore
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+        private readonly GameScreenCollection _gameScreenCollection;
+
+        public GameCore(GameScreenCollection screens)
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            _gameScreenCollection = screens;
+            screens.SetGameCore(this);
+            Components.Add(screens);
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+            
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            Services.AddService(_spriteBatch);
             // TODO: use this.Content to load your game content here
         }
 
@@ -42,11 +48,16 @@ namespace Game.Core
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(_gameScreenCollection.DrawColor);
 
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        public Viewport GetViewPort()
+        {
+            return GraphicsDevice.Viewport;
         }
     }
 }

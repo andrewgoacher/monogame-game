@@ -8,7 +8,8 @@ namespace Game
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
+            var screenCollection = new GameScreenCollection();
+            using (var game = new GameCore(screenCollection))
                 game.Run();
         }
     }

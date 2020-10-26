@@ -9,8 +9,10 @@
           </e>
         </e>
         <e p="Content.mgcb" t="Include" />
+        <e p="Default.spritefont" t="Include" />
         <e p="obj" t="Include">
           <e p="DesktopGL" t="Include">
+            <e p=".mgstats" t="Include" />
             <e p="Content" t="Include">
               <e p=".mgstats" t="Include" />
             </e>
@@ -36,7 +38,9 @@
       <e p="Game.Core" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Game.Core.csproj" t="IncludeRecursive" />
-        <e p="Game1.cs" t="Include" />
+        <e p="GameCore.cs" t="Include" />
+        <e p="GameScreenCollection.cs" t="Include" />
+        <e p="IGameCore.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.1" t="Include">

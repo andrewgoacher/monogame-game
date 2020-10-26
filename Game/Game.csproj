@@ -31,6 +31,12 @@
     <Content Include="..\Content\Content.mgcb">
       <Link>Content\Content.mgcb</Link>
     </Content>
+    <Content Include="..\Content\Default.spritefont">
+      <Link>Content\Default.spritefont</Link>
+    </Content>
+    <Content Include="..\Content\obj\DesktopGL\.mgstats">
+      <Link>Content\obj\DesktopGL\.mgstats</Link>
+    </Content>
     <Content Include="..\Content\obj\DesktopGL\Content\.mgstats">
       <Link>Content\obj\DesktopGL\Content\.mgstats</Link>
     </Content>

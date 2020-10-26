@@ -9,13 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eb9d1dd-7b45-4483-a3ec-3c54ad877b22" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Game.Core/Content/Content.mgcb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/Game.Core.projitems" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/Game.Core.shproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/Game1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Game.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Content/Content.mgcb" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game.Core/IGameCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.Core/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/GameCore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Game.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,19 +32,39 @@
       <list>
         <option value="$PROJECT_DIR$/Game.Core/Class1.cs" />
         <option value="$PROJECT_DIR$/Game/Game.csproj" />
+        <option value="$PROJECT_DIR$/Content/Content.mgcb" />
+        <option value="$PROJECT_DIR$/Content/Default.spritefont" />
+        <option value="$PROJECT_DIR$/Game.Core/UI/UserInterface.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/IGameCore.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/Game1.cs" />
+        <option value="$PROJECT_DIR$/Game/Program.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/GameCore.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1jKPGjAC3SB75zBmyPnC1YXwdI7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34987342" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30025315" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -73,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603549717464</updated>
-      <workItem from="1603549720616" duration="795000" />
+      <workItem from="1603549720616" duration="8052000" />
     </task>
     <servers />
   </component>
@@ -97,9 +119,49 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="2006" height="483" key="GridCell.Tab.0.bottom" timestamp="1603719337827">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1603719337827" />
+    <state width="2006" height="483" key="GridCell.Tab.0.center" timestamp="1603719337826">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1603719337826" />
+    <state width="2006" height="483" key="GridCell.Tab.0.left" timestamp="1603719337826">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1603719337826" />
+    <state width="2006" height="483" key="GridCell.Tab.0.right" timestamp="1603719337826">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1603719337826" />
+    <state width="2006" height="483" key="GridCell.Tab.1.bottom" timestamp="1603719342665">
+      <screen x="0" y="23" width="2048" height="1213" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.1.bottom/0.23.2048.1213@0.23.2048.1213" timestamp="1603719342665" />
+    <state width="2006" height="483" key="GridCell.Tab.1.center" timestamp="1603719342664">
+      <screen x="0" y="23" width="2048" height="1213" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.1.center/0.23.2048.1213@0.23.2048.1213" timestamp="1603719342664" />
+    <state width="2006" height="483" key="GridCell.Tab.1.left" timestamp="1603719342664">
+      <screen x="0" y="23" width="2048" height="1213" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.1.left/0.23.2048.1213@0.23.2048.1213" timestamp="1603719342664" />
+    <state width="2006" height="483" key="GridCell.Tab.1.right" timestamp="1603719342665">
+      <screen x="0" y="23" width="2048" height="1213" />
+    </state>
+    <state width="2006" height="483" key="GridCell.Tab.1.right/0.23.2048.1213@0.23.2048.1213" timestamp="1603719342665" />
     <state x="624" y="379" key="Rider.ProjectTemplateDialog.Size" timestamp="1603549939829">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
     <state x="624" y="379" key="Rider.ProjectTemplateDialog.Size/0.0.2048.1280@0.0.2048.1280" timestamp="1603549939829" />
+    <state x="812" y="321" key="RiderGenerateDialog" timestamp="1603718436301">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state x="812" y="321" key="RiderGenerateDialog/0.0.2048.1280@0.0.2048.1280" timestamp="1603718436301" />
+    <state x="525" y="279" key="SettingsEditor" timestamp="1603719029233">
+      <screen x="0" y="0" width="2048" height="1280" />
+    </state>
+    <state x="525" y="279" key="SettingsEditor/0.0.2048.1280@0.0.2048.1280" timestamp="1603719029233" />
   </component>
 </project>
