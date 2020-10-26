@@ -39,12 +39,25 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Game.Core.csproj" t="IncludeRecursive" />
         <e p="GameCore.cs" t="Include" />
+        <e p="GameScreen.cs" t="Include" />
         <e p="GameScreenCollection.cs" t="Include" />
         <e p="IGameCore.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.1" t="Include">
               <e p="Game.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Game.Shared" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Game.Shared.csproj" t="IncludeRecursive" />
+        <e p="MainScreen.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Game.Shared.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

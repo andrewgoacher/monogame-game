@@ -3,31 +3,25 @@ using Microsoft.Xna.Framework;
 
 namespace Game.Core
 {
-    public class GameScreenCollection : IGameComponent, IDrawable, IUpdateable
+    public abstract class GameScreen : IDrawable, IUpdateable
     {
-        private IGameCore gameCore;
-        private GameScreen currentScreen;
-
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
+        private IGameCore gameCore;
+        
         private int drawOrder = 0;
         private bool visible = true;
         private bool enabled = true;
         private int updateOrder = 0;
 
-        internal Color DrawColor
+        public GameScreen()
         {
-            get { return currentScreen.DrawColor; }
+            
         }
-
-        public GameScreenCollection(GameScreen firstScreen)
-        {
-            currentScreen = firstScreen;
-        }
-
+        
         public int DrawOrder
         {
             get { return drawOrder; }
@@ -57,6 +51,7 @@ namespace Game.Core
                 EnabledChanged?.Invoke(this, EventArgs.Empty);
             }
         }
+        
         public int UpdateOrder
         {
             get { return updateOrder; }
@@ -66,35 +61,17 @@ namespace Game.Core
                 UpdateOrderChanged?.Invoke(this, EventArgs.Empty);
             }
         }
+        
+        public Color DrawColor { get; protected set; }
 
         internal void SetGameCore(IGameCore gameCore)
         {
             this.gameCore = gameCore;
         }
 
-        public void Initialize()
-        {
-        }
-
-        public void Draw(GameTime gameTime)
-        {
-            if (!Visible)
-            {
-                return;
-            }
-            
-            currentScreen.Draw(gameTime);
-        }
+        public abstract void Draw(GameTime gameTime);
 
 
-        public void Update(GameTime gameTime)
-        {
-            if (Enabled)
-            {
-                return;
-            }
-            
-            currentScreen.Update(gameTime);
-        }
+        public abstract void Update(GameTime gameTime);
     }
 }

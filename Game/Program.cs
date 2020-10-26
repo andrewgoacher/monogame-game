@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Core;
+using Game.Shared;
 
 namespace Game
 {
@@ -8,7 +9,7 @@ namespace Game
         [STAThread]
         static void Main()
         {
-            var screenCollection = new GameScreenCollection();
+            var screenCollection = new GameScreenCollection(new MainScreen());
             using (var game = new GameCore(screenCollection))
                 game.Run();
         }
