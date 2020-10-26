@@ -2,26 +2,37 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p=".git/info/exclude" t="IncludeRecursive" />
+      <e p=".gitignore" t="Include" />
       <e p="Content" t="Include">
-        <e p="bin" t="Include">
-          <e p="DesktopGL" t="Include">
-            <e p="Content" t="Include" />
-          </e>
-        </e>
         <e p="Content.mgcb" t="Include" />
         <e p="Default.spritefont" t="Include" />
+        <e p="Default.xnb" t="Include" />
         <e p="obj" t="Include">
           <e p="DesktopGL" t="Include">
+            <e p=".mgcontent" t="Include" />
             <e p=".mgstats" t="Include" />
-            <e p="Content" t="Include">
-              <e p=".mgstats" t="Include" />
-            </e>
+            <e p="Default.mgcontent" t="Include" />
+            <e p="spritesheet.mgcontent" t="Include" />
           </e>
         </e>
+        <e p="OFL.txt" t="Include" />
+        <e p="spritesheet.png" t="Include" />
+        <e p="spritesheet.txt" t="Include" />
+        <e p="spritesheet.xnb" t="Include" />
+        <e p="SyneMono-Regular.ttf" t="Include" />
       </e>
       <e p="game" t="IncludeRecursive">
         <e p="app.manifest" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
+        <e p="bin" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Content" t="Include">
+                <e p="Content.mgcb" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Game.csproj" t="IncludeRecursive" />
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
@@ -41,6 +52,10 @@
         <e p="GameCore.cs" t="Include" />
         <e p="GameScreen.cs" t="Include" />
         <e p="GameScreenCollection.cs" t="Include" />
+        <e p="Graphics" t="Include">
+          <e p="AtlasItem.cs" t="Include" />
+          <e p="TextureAtlas.cs" t="Include" />
+        </e>
         <e p="IGameCore.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -64,6 +79,7 @@
       </e>
       <e p="Game.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="SolutionFolder1" t="Include" />
     </e>
     <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_Game.-674391800.00" t="ExcludeRecursive" />

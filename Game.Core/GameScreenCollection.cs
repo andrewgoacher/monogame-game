@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Game.Core
 {
@@ -70,10 +71,16 @@ namespace Game.Core
         internal void SetGameCore(IGameCore gameCore)
         {
             this.gameCore = gameCore;
+            currentScreen.Game = gameCore;
         }
 
         public void Initialize()
         {
+        }
+
+        public void LoadContent()
+        {
+            currentScreen.LoadContent();
         }
 
         public void Draw(GameTime gameTime)
@@ -82,8 +89,12 @@ namespace Game.Core
             {
                 return;
             }
-            
+
+            var batch = gameCore.Services.GetService<SpriteBatch>();
+
+            batch.Begin();
             currentScreen.Draw(gameTime);
+            batch.End();
         }
 
 

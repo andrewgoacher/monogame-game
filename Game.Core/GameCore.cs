@@ -16,6 +16,8 @@ namespace Game.Core
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            
+            Services.AddService(Content);
 
             _gameScreenCollection = screens;
             screens.SetGameCore(this);
@@ -34,6 +36,7 @@ namespace Game.Core
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(_spriteBatch);
             // TODO: use this.Content to load your game content here
+            _gameScreenCollection.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)

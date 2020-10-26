@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace Game.Core
 {
@@ -10,63 +11,81 @@ namespace Game.Core
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
-        private IGameCore gameCore;
+        private IGameCore _gameCore;
         
-        private int drawOrder = 0;
-        private bool visible = true;
-        private bool enabled = true;
-        private int updateOrder = 0;
+        private int _drawOrder = 0;
+        private bool _visible = true;
+        private bool _enabled = true;
+        private int _updateOrder = 0;
+        private bool _loaded = false;
 
         public GameScreen()
         {
             
         }
+
+        internal void LoadContent()
+        {
+            if (!_loaded)
+            {
+                OnLoad();
+                _loaded = true;
+            }
+        }
+
+        protected abstract void OnLoad();
+        
+        protected internal IGameCore Game
+        {
+            get { return _gameCore; }
+            internal set { _gameCore = value; }
+        }
         
         public int DrawOrder
         {
-            get { return drawOrder; }
+            get { return _drawOrder; }
             set
             {
-                drawOrder = value;
+                _drawOrder = value;
                 DrawOrderChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
         public bool Visible
         {
-            get { return visible; }
+            get { return _visible; }
             set
             {
-                visible = value;
+                _visible = value;
                 VisibleChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
         public bool Enabled
         {
-            get { return enabled; }
+            get { return _enabled; }
             set
             {
-                enabled = value;
+                _enabled = value;
                 EnabledChanged?.Invoke(this, EventArgs.Empty);
             }
         }
         
         public int UpdateOrder
         {
-            get { return updateOrder; }
+            get { return _updateOrder; }
             set
             {
-                updateOrder = value;
+                _updateOrder = value;
                 UpdateOrderChanged?.Invoke(this, EventArgs.Empty);
             }
         }
         
-        public Color DrawColor { get; protected set; }
+        public Color DrawColor { get; protected set; } = Color.CornflowerBlue;
 
         internal void SetGameCore(IGameCore gameCore)
         {
-            this.gameCore = gameCore;
+            this._gameCore = gameCore;
         }
 
         public abstract void Draw(GameTime gameTime);
