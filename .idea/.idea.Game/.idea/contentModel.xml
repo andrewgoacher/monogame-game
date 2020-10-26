@@ -5,6 +5,8 @@
       <e p=".git/info/exclude" t="IncludeRecursive" />
       <e p=".gitignore" t="Include" />
       <e p="Content" t="Include">
+        <e p="b2ap3_large_kyt_wizard_400.jpg" t="Include" />
+        <e p="b2ap3_large_kyt_wizard_400.xnb" t="Include" />
         <e p="Content.mgcb" t="Include" />
         <e p="Default.spritefont" t="Include" />
         <e p="Default.xnb" t="Include" />
@@ -12,6 +14,7 @@
           <e p="DesktopGL" t="Include">
             <e p=".mgcontent" t="Include" />
             <e p=".mgstats" t="Include" />
+            <e p="b2ap3_large_kyt_wizard_400.mgcontent" t="Include" />
             <e p="Default.mgcontent" t="Include" />
             <e p="spritesheet.mgcontent" t="Include" />
           </e>
@@ -54,6 +57,7 @@
         <e p="GameScreenCollection.cs" t="Include" />
         <e p="Graphics" t="Include">
           <e p="AtlasItem.cs" t="Include" />
+          <e p="Sprite.cs" t="Include" />
           <e p="TextureAtlas.cs" t="Include" />
         </e>
         <e p="IGameCore.cs" t="Include" />

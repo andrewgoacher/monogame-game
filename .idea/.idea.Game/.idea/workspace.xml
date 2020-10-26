@@ -9,18 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eb9d1dd-7b45-4483-a3ec-3c54ad877b22" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Game.Core/Graphics/AtlasItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game.Core/Graphics/TextureAtlas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/GameCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/GameCore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/GameScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/GameScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Shared/MainScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Shared/MainScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Game.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +43,7 @@
         <option value="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" />
         <option value="$PROJECT_DIR$/Game/Game.csproj" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" />
       </list>
     </option>
   </component>
@@ -109,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603549717464</updated>
       <workItem from="1603549720616" duration="9961000" />
-      <workItem from="1603741804106" duration="4004000" />
+      <workItem from="1603741804106" duration="4758000" />
     </task>
     <servers />
   </component>
