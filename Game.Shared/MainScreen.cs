@@ -20,10 +20,9 @@ namespace Game.Shared
         {
             var contentManager = GameCore.Game.Services.GetService<ContentManager>();
             _spriteFont = contentManager.Load<SpriteFont>("Default");
-            _sprite = new Sprite("b2ap3_large_kyt_wizard_400", new Vector2(100, 150))
-            {
-                Position = new Vector2(200, 200)
-            };
+            
+            _sprite = new Sprite("b2ap3_large_kyt_wizard_400", new Vector2(100, 100), new Vector2(100, 200));
+            
             
             _animatedSprite = new AnimatedSprite("animation")
             {
