@@ -6,39 +6,39 @@ namespace Game.Core
 {
     public class GameScreenCollection : IGameComponent, IDrawable, IUpdateable
     {
-        private readonly GameScreen currentScreen;
+        private readonly GameScreen _currentScreen;
 
-        private int drawOrder;
-        private bool enabled = true;
-        private int updateOrder;
-        private bool visible = true;
+        private int _drawOrder;
+        private bool _enabled = true;
+        private int _updateOrder;
+        private bool _visible = true;
 
         public GameScreenCollection(GameScreen firstScreen)
         {
-            currentScreen = firstScreen;
+            _currentScreen = firstScreen;
         }
 
-        internal Color DrawColor => currentScreen.DrawColor;
+        internal Color DrawColor => _currentScreen.DrawColor;
 
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
 
         public int DrawOrder
         {
-            get => drawOrder;
+            get => _drawOrder;
             set
             {
-                drawOrder = value;
+                _drawOrder = value;
                 DrawOrderChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
         public bool Visible
         {
-            get => visible;
+            get => _visible;
             set
             {
-                visible = value;
+                _visible = value;
                 VisibleChanged?.Invoke(this, EventArgs.Empty);
             }
         }
@@ -50,7 +50,7 @@ namespace Game.Core
             var batch = GameCore.Game.Services.GetService<SpriteBatch>();
 
             batch.Begin();
-            currentScreen.Draw(gameTime);
+            _currentScreen.Draw(gameTime);
             batch.End();
         }
 
@@ -63,20 +63,20 @@ namespace Game.Core
 
         public bool Enabled
         {
-            get => enabled;
+            get => _enabled;
             set
             {
-                enabled = value;
+                _enabled = value;
                 EnabledChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
         public int UpdateOrder
         {
-            get => updateOrder;
+            get => _updateOrder;
             set
             {
-                updateOrder = value;
+                _updateOrder = value;
                 UpdateOrderChanged?.Invoke(this, EventArgs.Empty);
             }
         }
@@ -86,12 +86,12 @@ namespace Game.Core
         {
             if (!Enabled) return;
 
-            currentScreen.Update(gameTime);
+            _currentScreen.Update(gameTime);
         }
 
         public void LoadContent()
         {
-            currentScreen.LoadContent();
+            _currentScreen.LoadContent();
         }
     }
 }
