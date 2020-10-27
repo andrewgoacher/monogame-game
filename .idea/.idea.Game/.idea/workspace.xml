@@ -14,17 +14,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eb9d1dd-7b45-4483-a3ec-3c54ad877b22" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Game.Core/Graphics/AnimatedSprite.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game.Core/Graphics/Animation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Game.Core/Graphics/AnimationFrame.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/animation.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/GameCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/GameCore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/GameScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/GameScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/TextureAtlas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/TextureAtlas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/AnimatedSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/AnimatedSprite.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.Shared/MainScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Shared/MainScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Game.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +53,12 @@
         <option value="$PROJECT_DIR$/Game.Core/GameScreen.cs" />
         <option value="$PROJECT_DIR$/Game.Core/GameCore.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" />
-        <option value="$PROJECT_DIR$/Game.Core/Graphics/AnimatedSprite.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/TextureAtlas.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/Animation.cs" />
         <option value="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" />
+        <option value="$PROJECT_DIR$/Content/animation.txt" />
         <option value="$PROJECT_DIR$/Game.Shared/MainScreen.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/Graphics/AnimatedSprite.cs" />
       </list>
     </option>
   </component>
@@ -119,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603549717464</updated>
       <workItem from="1603549720616" duration="9961000" />
-      <workItem from="1603741804106" duration="9200000" />
+      <workItem from="1603741804106" duration="10741000" />
     </task>
     <servers />
   </component>
@@ -144,22 +140,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2006" height="371" key="GridCell.Tab.0.bottom" timestamp="1603829988538">
+    <state width="2006" height="371" key="GridCell.Tab.0.bottom" timestamp="1603830245277">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1603829988538" />
-    <state width="2006" height="371" key="GridCell.Tab.0.center" timestamp="1603829988538">
+    <state width="2006" height="371" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245277" />
+    <state width="2006" height="371" key="GridCell.Tab.0.center" timestamp="1603830245276">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1603829988538" />
-    <state width="2006" height="371" key="GridCell.Tab.0.left" timestamp="1603829988537">
+    <state width="2006" height="371" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245276" />
+    <state width="2006" height="371" key="GridCell.Tab.0.left" timestamp="1603830245275">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1603829988537" />
-    <state width="2006" height="371" key="GridCell.Tab.0.right" timestamp="1603829988538">
+    <state width="2006" height="371" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245275" />
+    <state width="2006" height="371" key="GridCell.Tab.0.right" timestamp="1603830245277">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1603829988538" />
+    <state width="2006" height="371" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245277" />
     <state width="2006" height="483" key="GridCell.Tab.1.bottom" timestamp="1603829986202">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>

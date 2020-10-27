@@ -5,6 +5,7 @@
       <e p=".git/info/exclude" t="IncludeRecursive" />
       <e p=".gitignore" t="Include" />
       <e p="Content" t="Include">
+        <e p="animation.txt" t="Include" />
         <e p="b2ap3_large_kyt_wizard_400.jpg" t="Include" />
         <e p="b2ap3_large_kyt_wizard_400.xnb" t="Include" />
         <e p="Content.mgcb" t="Include" />

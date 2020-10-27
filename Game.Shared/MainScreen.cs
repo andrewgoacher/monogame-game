@@ -25,45 +25,7 @@ namespace Game.Shared
                 Position = new Vector2(200, 200)
             };
             
-            _animatedSprite = new AnimatedSprite("spritesheet", new []
-            {
-                new Animation("walk-down", new []
-                {
-                    new AnimationFrame("sprite1", 200f),
-                    new AnimationFrame("sprite2", 200f),
-                    new AnimationFrame("sprite3", 200f),
-                    new AnimationFrame("sprite4", 200f),
-                    new AnimationFrame("sprite5", 200f),
-                    new AnimationFrame("sprite6", 200f),
-                }), 
-                new Animation("walk-right", new []
-                {
-                    new AnimationFrame("sprite7", 200f),
-                    new AnimationFrame("sprite8", 200f),
-                    new AnimationFrame("sprite9", 200f),
-                    new AnimationFrame("sprite10", 200f),
-                    new AnimationFrame("sprite11", 200f),
-                    new AnimationFrame("sprite12", 200f),
-                }), 
-                new Animation("walk-up", new []
-                {
-                    new AnimationFrame("sprite13", 200f),
-                    new AnimationFrame("sprite14", 200f),
-                    new AnimationFrame("sprite15", 200f),
-                    new AnimationFrame("sprite16", 200f),
-                    new AnimationFrame("sprite17", 200f),
-                    new AnimationFrame("sprite18", 200f),
-                }), 
-                new Animation("walk-left", new []
-                {
-                    new AnimationFrame("sprite19", 200f),
-                    new AnimationFrame("sprite20", 200f),
-                    new AnimationFrame("sprite21", 200f),
-                    new AnimationFrame("sprite22", 200f),
-                    new AnimationFrame("sprite23", 200f),
-                    new AnimationFrame("sprite24", 200f),
-                }), 
-            })
+            _animatedSprite = new AnimatedSprite("animation")
             {
                 Position = new Vector2(500, 200)
             };

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game.Core.Graphics
@@ -10,21 +12,51 @@ namespace Game.Core.Graphics
     {
         private readonly Dictionary<string, Animation> _animations;
         private readonly string _currentAnimation;
+        private readonly TextureAtlas _textureAtlas;
         private int _drawOrder;
         private bool _enabled = true;
-        private readonly TextureAtlas _textureAtlas;
         private int _updateOrder;
         private bool _visible = true;
 
-        public AnimatedSprite(string atlas, IEnumerable<Animation> animations)
+        public AnimatedSprite(string file)
         {
-            if (animations?.Any() == false) throw new ArgumentException(nameof(animations));
+            if (string.IsNullOrEmpty(file)) throw new ArgumentNullException(nameof(file));
 
-            if (string.IsNullOrEmpty(atlas)) throw new ArgumentNullException(nameof(atlas));
+            var contentManager = GameCore.Game.Services.GetService<ContentManager>();
 
-            _textureAtlas = new TextureAtlas(atlas);
-            _animations = animations.ToDictionary(a => a.Name, a => a);
-            _currentAnimation = animations.First().Name;
+            using (var stream = TitleContainer.OpenStream($"{contentManager.RootDirectory}/{file}.txt"))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    var lines = reader.ReadToEnd().Split('\n', '\r');
+                    _textureAtlas = new TextureAtlas(lines[0]);
+                    var animations = new List<Animation>();
+                    var frames = new List<AnimationFrame>();
+                    var idx = 1;
+                    while (idx < lines.Length)
+                    {
+                        var name = lines[idx++];
+                        var loops = Convert.ToBoolean(lines[idx++]);
+                        var next = lines[idx++];
+                        do
+                        {
+                            var parts = next.Split(new[] {':'});
+                            frames.Add(new AnimationFrame(parts[0], Convert.ToSingle(parts[1])));
+                            next = lines[idx++];
+                        } while (next.Equals($"!{name}") == false);
+
+                        animations.Add(new Animation(name, frames)
+                        {
+                            Loops = loops
+                        });
+
+                        frames.Clear();
+                    }
+
+                    _animations = animations.ToDictionary(a => a.Name, a => a);
+                    _currentAnimation = animations.First().Name;
+                }
+            }
         }
 
         public Vector2 Position { get; set; } = Vector2.Zero;
@@ -50,17 +82,6 @@ namespace Game.Core.Graphics
                 _visible = value;
                 VisibleChanged?.Invoke(this, EventArgs.Empty);
             }
-        }
-
-        public void SetAnimation(string animation)
-        {
-            _animations[_currentAnimation].Reset();
-            if (!_animations.TryGetValue(animation, out var anim))
-            {
-                throw new ArgumentException(nameof(animation));
-            }
-            
-            anim.Reset();
         }
 
         public void Draw(GameTime gameTime)
@@ -103,6 +124,14 @@ namespace Game.Core.Graphics
         public void Update(GameTime gameTime)
         {
             _animations[_currentAnimation].Update(gameTime);
+        }
+
+        public void SetAnimation(string animation)
+        {
+            _animations[_currentAnimation].Reset();
+            if (!_animations.TryGetValue(animation, out var anim)) throw new ArgumentException(nameof(animation));
+
+            anim.Reset();
         }
     }
 }
