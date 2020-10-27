@@ -6,19 +6,17 @@ namespace Game.Core
 {
     public sealed class GameCore : Microsoft.Xna.Framework.Game, IGameCore
     {
-        public static IGameCore Game { get; private set; }
-        
+        private readonly GameScreenCollection _gameScreenCollection;
+
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
-        private readonly GameScreenCollection _gameScreenCollection;
 
         public GameCore(GameScreenCollection screens)
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            
+
             Services.AddService(Content);
 
             _gameScreenCollection = screens;
@@ -26,27 +24,20 @@ namespace Game.Core
             Game = this;
         }
 
-        protected override void Initialize()
-        {
-            // TODO: Add your initialization logic here
-            base.Initialize();
-        }
+        public static IGameCore Game { get; private set; }
 
         protected override void LoadContent()
         {
-            
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(_spriteBatch);
-            // TODO: use this.Content to load your game content here
             _gameScreenCollection.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+                Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }
@@ -55,14 +46,7 @@ namespace Game.Core
         {
             GraphicsDevice.Clear(_gameScreenCollection.DrawColor);
 
-            // TODO: Add your drawing code here
-
             base.Draw(gameTime);
-        }
-
-        public Viewport GetViewPort()
-        {
-            return GraphicsDevice.Viewport;
         }
     }
 }
