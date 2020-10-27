@@ -14,8 +14,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eb9d1dd-7b45-4483-a3ec-3c54ad877b22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/AnimatedSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/Animations/AnimatedSprite.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/Animation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/Animations/Animation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/AnimationFrame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/Animations/AnimationFrame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.Core/Graphics/AtlasItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Core/Graphics/AtlasItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.Shared/MainScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game.Shared/MainScreen.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +46,12 @@
         <option value="$PROJECT_DIR$/Game.Core/Game1.cs" />
         <option value="$PROJECT_DIR$/Game.Shared/Class1.cs" />
         <option value="$PROJECT_DIR$/Game/Program.cs" />
-        <option value="$PROJECT_DIR$/Game.Core/Graphics/AtlasItem.cs" />
         <option value="$PROJECT_DIR$/Game/Game.csproj" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/AnimationFrame.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/TextureAtlas.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/Animation.cs" />
         <option value="$PROJECT_DIR$/Content/animation.txt" />
-        <option value="$PROJECT_DIR$/Game.Shared/MainScreen.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/AnimatedSprite.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Singleton.cs" />
         <option value="$PROJECT_DIR$/Game.Core/GameCore.cs" />
@@ -56,6 +59,12 @@
         <option value="$PROJECT_DIR$/Game.Core/GameScreen.cs" />
         <option value="$PROJECT_DIR$/Game.Core/GameScreenCollection.cs" />
         <option value="$PROJECT_DIR$/Game.Core/Graphics/Sprite.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/Graphics/Animations/AtlasItem.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/Graphics/AtlasItem.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/Graphics/Animations/AnimationFrame.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/Graphics/Animations/Animation.cs" />
+        <option value="$PROJECT_DIR$/Game.Core/Graphics/Animations/AnimatedSprite.cs" />
+        <option value="$PROJECT_DIR$/Game.Shared/MainScreen.cs" />
       </list>
     </option>
   </component>
@@ -137,22 +146,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2006" height="371" key="GridCell.Tab.0.bottom" timestamp="1603830245277">
+    <state width="2006" height="371" key="GridCell.Tab.0.bottom" timestamp="1603837043664">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245277" />
-    <state width="2006" height="371" key="GridCell.Tab.0.center" timestamp="1603830245276">
+    <state width="2006" height="371" key="GridCell.Tab.0.bottom/0.0.2048.1280@0.0.2048.1280" timestamp="1603837043664" />
+    <state width="2006" height="371" key="GridCell.Tab.0.center" timestamp="1603837043663">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245276" />
-    <state width="2006" height="371" key="GridCell.Tab.0.left" timestamp="1603830245275">
+    <state width="2006" height="371" key="GridCell.Tab.0.center/0.0.2048.1280@0.0.2048.1280" timestamp="1603837043663" />
+    <state width="2006" height="371" key="GridCell.Tab.0.left" timestamp="1603837043662">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245275" />
-    <state width="2006" height="371" key="GridCell.Tab.0.right" timestamp="1603830245277">
+    <state width="2006" height="371" key="GridCell.Tab.0.left/0.0.2048.1280@0.0.2048.1280" timestamp="1603837043662" />
+    <state width="2006" height="371" key="GridCell.Tab.0.right" timestamp="1603837043663">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
-    <state width="2006" height="371" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1603830245277" />
+    <state width="2006" height="371" key="GridCell.Tab.0.right/0.0.2048.1280@0.0.2048.1280" timestamp="1603837043663" />
     <state width="2006" height="483" key="GridCell.Tab.1.bottom" timestamp="1603829986202">
       <screen x="0" y="0" width="2048" height="1280" />
     </state>
@@ -246,27 +255,27 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Game.Core/Graphics/Animation.cs</url>
+          <url>file://$PROJECT_DIR$/Game.Core/Graphics/Animations/Animation.cs</url>
           <line>58</line>
           <properties documentPath="$PROJECT_DIR$/Game.Core/Graphics/Animation.cs" initialLine="58">
             <startOffsets>
-              <option value="1529" />
+              <option value="1541" />
             </startOffsets>
             <endOffsets>
-              <option value="1579" />
+              <option value="1591" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Game.Core/Graphics/Animation.cs</url>
+          <url>file://$PROJECT_DIR$/Game.Core/Graphics/Animations/Animation.cs</url>
           <line>53</line>
           <properties documentPath="$PROJECT_DIR$/Game.Core/Graphics/Animation.cs" initialLine="53">
             <startOffsets>
-              <option value="1355" />
+              <option value="1368" />
             </startOffsets>
             <endOffsets>
-              <option value="1368" />
+              <option value="1381" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />

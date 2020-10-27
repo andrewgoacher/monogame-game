@@ -57,9 +57,11 @@
         <e p="GameScreen.cs" t="Include" />
         <e p="GameScreenCollection.cs" t="Include" />
         <e p="Graphics" t="Include">
-          <e p="AnimatedSprite.cs" t="Include" />
-          <e p="Animation.cs" t="Include" />
-          <e p="AnimationFrame.cs" t="Include" />
+          <e p="Animations" t="Include">
+            <e p="AnimatedSprite.cs" t="Include" />
+            <e p="Animation.cs" t="Include" />
+            <e p="AnimationFrame.cs" t="Include" />
+          </e>
           <e p="AtlasItem.cs" t="Include" />
           <e p="Sprite.cs" t="Include" />
           <e p="TextureAtlas.cs" t="Include" />

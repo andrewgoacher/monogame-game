@@ -6,19 +6,26 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Game.Core.Graphics
+namespace Game.Core.Graphics.Animations
 {
     public class AnimatedSprite : IDrawable, IUpdateable
     {
-        private readonly Dictionary<string, Animation> _animations;
-        private readonly string _currentAnimation;
-        private readonly TextureAtlas _textureAtlas;
+        private Dictionary<string, Animation> _animations;
+        private string _currentAnimation;
+        private TextureAtlas _textureAtlas;
         private int _drawOrder;
         private bool _enabled = true;
         private int _updateOrder;
         private bool _visible = true;
+        private Rectangle _destinationRect;
 
-        public AnimatedSprite(string file)
+        public AnimatedSprite(string file, Rectangle rect)
+        {
+            Init(file);
+            _destinationRect = rect;
+        }
+
+        private void Init(string file)
         {
             if (string.IsNullOrEmpty(file)) throw new ArgumentNullException(nameof(file));
 
@@ -59,8 +66,6 @@ namespace Game.Core.Graphics
             }
         }
 
-        public Vector2 Position { get; set; } = Vector2.Zero;
-
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
 
@@ -94,8 +99,18 @@ namespace Game.Core.Graphics
             var frame = currentAnimation.Frame;
             var atlasFrame = _textureAtlas[frame.Name];
 
-            batch.Draw(_textureAtlas.Texture, Position, atlasFrame, Color.White, 0f, Vector2.Zero, Vector2.One,
+            batch.Draw(_textureAtlas.Texture, _destinationRect, atlasFrame, Color.White, 0f, Vector2.Zero,
                 SpriteEffects.None, 0f);
+        }
+        
+        public void SetPosition(int x, int y)
+        {
+            _destinationRect = new Rectangle(x, y, _destinationRect.Width, _destinationRect.Height);
+        }
+
+        public void SetSize(int w, int h)
+        {
+            _destinationRect = new Rectangle(_destinationRect.X, _destinationRect.Y, w, h);
         }
 
         public event EventHandler<EventArgs> EnabledChanged;

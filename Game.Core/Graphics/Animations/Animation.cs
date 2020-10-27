@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 
-namespace Game.Core.Graphics
+namespace Game.Core.Graphics.Animations
 {
-    public class Animation : IUpdateable
+    internal class Animation : IUpdateable
     {
         private readonly AnimationFrame[] _frames;
 
@@ -22,6 +22,8 @@ namespace Game.Core.Graphics
 
         public string Name { get; }
         public bool Loops { get; set; } = true;
+
+        public AnimationFrame Frame => _frames[_currentFrameIndex];
 
         public bool Enabled
         {
@@ -43,8 +45,6 @@ namespace Game.Core.Graphics
             }
         }
 
-        public AnimationFrame Frame => _frames[_currentFrameIndex];
-
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
@@ -55,7 +55,7 @@ namespace Game.Core.Graphics
 
             var currentFrame = _frames[_currentFrameIndex];
 
-            _currentFrameTime +=  gameTime.ElapsedGameTime.TotalMilliseconds;
+            _currentFrameTime += gameTime.ElapsedGameTime.TotalMilliseconds;
             if (!(_currentFrameTime >= currentFrame.Duration)) return;
 
             _currentFrameIndex += 1;

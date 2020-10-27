@@ -1,5 +1,6 @@
 using Game.Core;
 using Game.Core.Graphics;
+using Game.Core.Graphics.Animations;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,12 +23,9 @@ namespace Game.Shared
             _spriteFont = contentManager.Load<SpriteFont>("Default");
             
             _sprite = new Sprite("b2ap3_large_kyt_wizard_400", new Vector2(100, 100), new Vector2(100, 200));
-            
-            
-            _animatedSprite = new AnimatedSprite("animation")
-            {
-                Position = new Vector2(500, 200)
-            };
+
+
+            _animatedSprite = new AnimatedSprite("animation", new Rectangle(500, 200, 100, 100));
         }
 
         public override void Draw(GameTime gameTime)

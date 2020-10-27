@@ -9,7 +9,7 @@ namespace Game.Core.Graphics
             Name = name;
             Rect = rect;
         }
-        
+
         public string Name { get; }
         public Rectangle Rect { get; }
     }
