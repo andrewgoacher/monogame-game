@@ -11,8 +11,6 @@ namespace Game.Core
         public event EventHandler<EventArgs> EnabledChanged;
         public event EventHandler<EventArgs> UpdateOrderChanged;
 
-        private IGameCore _gameCore;
-        
         private int _drawOrder = 0;
         private bool _visible = true;
         private bool _enabled = true;
@@ -34,12 +32,6 @@ namespace Game.Core
         }
 
         protected abstract void OnLoad();
-        
-        protected internal IGameCore Game
-        {
-            get { return _gameCore; }
-            internal set { _gameCore = value; }
-        }
         
         public int DrawOrder
         {
@@ -82,11 +74,6 @@ namespace Game.Core
         }
         
         public Color DrawColor { get; protected set; } = Color.CornflowerBlue;
-
-        internal void SetGameCore(IGameCore gameCore)
-        {
-            this._gameCore = gameCore;
-        }
 
         public abstract void Draw(GameTime gameTime);
 

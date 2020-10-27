@@ -6,6 +6,8 @@ namespace Game.Core
 {
     public sealed class GameCore : Microsoft.Xna.Framework.Game, IGameCore
     {
+        public static IGameCore Game { get; private set; }
+        
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -20,8 +22,8 @@ namespace Game.Core
             Services.AddService(Content);
 
             _gameScreenCollection = screens;
-            screens.SetGameCore(this);
             Components.Add(screens);
+            Game = this;
         }
 
         protected override void Initialize()

@@ -6,7 +6,6 @@ namespace Game.Core
 {
     public class GameScreenCollection : IGameComponent, IDrawable, IUpdateable
     {
-        private IGameCore gameCore;
         private GameScreen currentScreen;
 
         public event EventHandler<EventArgs> DrawOrderChanged;
@@ -68,12 +67,6 @@ namespace Game.Core
             }
         }
 
-        internal void SetGameCore(IGameCore gameCore)
-        {
-            this.gameCore = gameCore;
-            currentScreen.Game = gameCore;
-        }
-
         public void Initialize()
         {
         }
@@ -90,7 +83,7 @@ namespace Game.Core
                 return;
             }
 
-            var batch = gameCore.Services.GetService<SpriteBatch>();
+            var batch = GameCore.Game.Services.GetService<SpriteBatch>();
 
             batch.Begin();
             currentScreen.Draw(gameTime);
@@ -100,7 +93,7 @@ namespace Game.Core
 
         public void Update(GameTime gameTime)
         {
-            if (Enabled)
+            if (!Enabled)
             {
                 return;
             }

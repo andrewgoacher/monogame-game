@@ -10,29 +10,30 @@ namespace Game.Core.Graphics
 {
     internal class TextureAtlas
     {
-        private readonly Texture2D texture;
-        private readonly Dictionary<string, AtlasItem> atlas;
+        private readonly Dictionary<string, AtlasItem> _atlas;
 
-        public TextureAtlas(IGameCore gameCore, string atlas)
+        public TextureAtlas(string atlas)
         {
-            var contentManager = gameCore.Services.GetService<ContentManager>();
-            texture = contentManager.Load<Texture2D>(atlas);
-            this.atlas = GetAtlas(contentManager, atlas);
+            var contentManager = GameCore.Game.Services.GetService<ContentManager>();
+            Texture = contentManager.Load<Texture2D>(atlas);
+            _atlas = GetAtlas(contentManager, atlas);
         }
 
         public Rectangle this[int index]
         {
-            get { return atlas.ElementAt(index).Value.Rect; }
+            get { return _atlas.ElementAt(index).Value.Rect; }
         }
 
         public Rectangle this[string name]
         {
-            get { return atlas[name].Rect; }
+            get { return _atlas[name].Rect; }
         }
+
+        public Texture2D Texture { get; }
 
         private static Dictionary<string, AtlasItem> GetAtlas(ContentManager content, string atlas)
         {
-            using (var stream = TitleContainer.OpenStream($"{content.RootDirectory}{atlas}.txt"))
+            using (var stream = TitleContainer.OpenStream($"{content.RootDirectory}/{atlas}.txt"))
             {
                 var reader = new StreamReader(stream);
                 var lines = reader.ReadToEnd().Split(new char[] {'\r', '\n'});
