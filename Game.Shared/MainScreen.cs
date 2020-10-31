@@ -45,7 +45,7 @@ namespace Game.Shared
             
             var label = new Label()
             {
-                Text = "Testing, testing, 1,2,3...",
+                Text = "Testing, testing, 1,2,3...\nTesting, testing, 1,2,3...\nTesting, testing, 1,2,3...\nTesting, testing, 1,2,3...",
                 Name = "Label",
                 Bounds = new Rectangle(0,0,200, 50),
                 Color = Color.Black,
