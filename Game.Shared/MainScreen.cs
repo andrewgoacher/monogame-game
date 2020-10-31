@@ -2,6 +2,7 @@ using Game.Core;
 using Game.Core.Graphics;
 using Game.Core.Graphics.Animations;
 using Game.Core.UI;
+using Game.Core.UI.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;

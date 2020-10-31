@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Game.Core.UI
+namespace Game.Core.UI.Controls
 {
     public class Panel : IUIContainer, IUIElement
     {
