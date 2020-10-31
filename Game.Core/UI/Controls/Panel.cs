@@ -23,6 +23,7 @@ namespace Game.Core.UI.Controls
         public void AddChild(IUIElement element)
         {
             _children.Add(element);
+            Reconfigure(_amendedBounds);
         }
 
         public void RemoveChild(IUIElement element)

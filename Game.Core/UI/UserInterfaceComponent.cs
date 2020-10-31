@@ -95,6 +95,7 @@ namespace Game.Core.UI
         public void SetInterface(UserInterface ui)
         {
             _interface = ui;
+            ui.DefaultFont = _defaultFont;
             Reconfigure(GameCore.Game.Viewport);
         }
 

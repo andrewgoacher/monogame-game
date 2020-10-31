@@ -40,6 +40,16 @@ namespace Game.Shared
                 Background = new ColorBackground(Color.Yellow),
                 Bounds = new Rectangle(50, 25, 200, 50)
             };
+            
+            var label = new Label()
+            {
+                Text = "Testing, testing, 1,2,3...",
+                Font = _userInterface.DefaultFont,
+                Bounds = new Rectangle(0,0,200, 50),
+                Color = Color.Black
+            };   
+            
+            childPanel.AddChild(label);
 
             panel.AddChild(childPanel);
 
