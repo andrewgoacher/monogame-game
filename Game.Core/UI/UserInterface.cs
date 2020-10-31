@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Game.Core.UI
 {
-    public class UserInterface :
-        IUIContainer
+    public class UserInterface
     {
         private readonly Panel _panel;
 
@@ -20,12 +19,12 @@ namespace Game.Core.UI
 
         public SpriteFont DefaultFont { get; internal set; }
 
-        public void AddChild(IUIElement element)
+        public void AddChild(ControlBase element)
         {
             _panel.AddChild(element);
         }
 
-        public void RemoveChild(IUIElement element)
+        public void RemoveChild(ControlBase element)
         {
             _panel.RemoveChild(element);
         }
