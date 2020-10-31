@@ -10,18 +10,22 @@ namespace Game.Core.UI
 
         internal UserInterface()
         {
-            _panel = new Panel();
+            _panel = new Panel() { Name = "Root"};
+            _panel.UserInterface = this;
         }
 
         public bool Visible { get; set; } = true;
 
         public bool Enabled { get; set; } = true;
+        
+        public Rectangle Bounds { get; private set; }
 
         public SpriteFont DefaultFont { get; internal set; }
 
         public void AddChild(ControlBase element)
         {
             _panel.AddChild(element);
+            Reconfigure(Bounds);
         }
 
         public void RemoveChild(ControlBase element)
@@ -31,6 +35,7 @@ namespace Game.Core.UI
 
         public void Reconfigure(Rectangle vp)
         {
+            Bounds = vp;
             _panel.Bounds = vp;
         }
 

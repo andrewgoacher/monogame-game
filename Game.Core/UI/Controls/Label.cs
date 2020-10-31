@@ -30,6 +30,15 @@ namespace Game.Core.UI.Controls
             return false;
         }
 
+        protected internal override void OnAdd(ControlBase parent)
+        {
+            base.OnAdd(parent);
+            if (Font == null)
+            {
+                Font = UserInterface.DefaultFont;
+            }
+        }
+
         protected override void OnDraw(GameTime gameTime, SpriteBatch batch)
         {
             batch.DrawString(Font, Text, _position, Color);

@@ -16,8 +16,9 @@ namespace Game.Core.UI.Controls
         public void AddChild(ControlBase control)
         {
             _controls.Add(control);
+            control.UserInterface = UserInterface;
             control.OnAdd(this);
-            Reconfigure(ViewRect);
+            Reconfigure(ParentBounds);
         }
 
         public void RemoveChild(ControlBase control)

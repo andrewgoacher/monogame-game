@@ -1,19 +1,47 @@
 using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Game.Core.UI.Controls
 {
+    [DebuggerDisplay("{Name}")]
     public abstract class ControlBase : IEquatable<ControlBase>
     {
         private Rectangle _bounds;
         private Rectangle _parentRect;
+        private UserInterface _userInterface;
 
         private readonly Guid _controlId = Guid.NewGuid();
         private string ControlName => GetType().Name;
 
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+            }
+        }
+        
         public bool Enabled { get; set; } = true;
         public bool Visible { get; set; } = true;
+
+        public UserInterface UserInterface
+        {
+            get => _userInterface;
+            internal set
+            {
+                if (_userInterface != null)
+                {
+                    throw new ArgumentException();
+                }
+
+                _userInterface = value;
+            }
+        }
 
         public Rectangle Bounds
         {
@@ -24,6 +52,8 @@ namespace Game.Core.UI.Controls
                 Reconfigure(_parentRect);
             }
         }
+
+        public Rectangle ParentBounds => _parentRect;
 
         protected Rectangle ViewRect { get; private set; }
 
@@ -38,6 +68,7 @@ namespace Game.Core.UI.Controls
 
         public void Update(GameTime gameTime)
         {
+            if (_userInterface == null) { throw new ArgumentException();}
             if (!Enabled) return;
 
             OnUpdate(gameTime);

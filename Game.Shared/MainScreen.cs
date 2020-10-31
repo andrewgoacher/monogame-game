@@ -32,28 +32,28 @@ namespace Game.Shared
             var panel = new Panel
             {
                 Background = new ColorBackground(Color.Red),
-                Bounds = new Rectangle(0, 0, 300, 100)
+                Name = "Red Panel",
+                Bounds = new Rectangle(0, 0, 300, 100),
             };
 
             var childPanel = new Panel
             {
                 Background = new ColorBackground(Color.Yellow),
-                Bounds = new Rectangle(50, 25, 200, 50)
+                Name = "Yellow Panel",
+                Bounds = new Rectangle(50, 25, 200, 50),
             };
             
             var label = new Label()
             {
                 Text = "Testing, testing, 1,2,3...",
-                Font = _userInterface.DefaultFont,
+                Name = "Label",
                 Bounds = new Rectangle(0,0,200, 50),
-                Color = Color.Black
-            };   
-            
-            childPanel.AddChild(label);
-
-            panel.AddChild(childPanel);
+                Color = Color.Black,
+            };
 
             _userInterface.AddChild(panel);
+            panel.AddChild(childPanel);
+            childPanel.AddChild(label);
         }
 
         public override void Draw(GameTime gameTime)
