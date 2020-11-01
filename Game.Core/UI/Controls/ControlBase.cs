@@ -50,10 +50,12 @@ namespace Game.Core.UI.Controls
         public void Draw(GameTime gameTime, SpriteBatch batch)
         {
             if (!Visible) return;
-
+            
+            var curr = batch.GraphicsDevice.ScissorRectangle;
+            batch.GraphicsDevice.ScissorRectangle = ViewRect;
             Background?.Draw(batch);
-
             OnDraw(gameTime, batch);
+            batch.GraphicsDevice.ScissorRectangle = curr;
         }
 
         public void Update(GameTime gameTime)

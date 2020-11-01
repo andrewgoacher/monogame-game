@@ -33,18 +33,12 @@ namespace Game.Core.UI.Controls
         protected internal override void OnAdd(ControlBase parent)
         {
             base.OnAdd(parent);
-            if (Font == null)
-            {
-                Font = UserInterface.DefaultFont;
-            }
+            if (Font == null) Font = UserInterface.DefaultFont;
         }
 
         protected override void OnDraw(GameTime gameTime, SpriteBatch batch)
         {
-            var curr = batch.GraphicsDevice.ScissorRectangle;
-            batch.GraphicsDevice.ScissorRectangle = ViewRect;
             batch.DrawString(Font, Text, _position, Color);
-            batch.GraphicsDevice.ScissorRectangle = curr;
         }
 
         protected override void OnUpdate(GameTime gameTime)
