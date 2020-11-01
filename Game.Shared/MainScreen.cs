@@ -47,8 +47,9 @@ namespace Game.Shared
             {
                 Text = "Testing, testing, 1,2,3...\nTesting, testing, 1,2,3...\nTesting, testing, 1,2,3...\nTesting, testing, 1,2,3...",
                 Name = "Label",
-                Bounds = new Rectangle(0,0,200, 50),
+                Bounds = new Rectangle(0,10,200, 30),
                 Color = Color.Black,
+                Background = new ColorBackground(Color.Gray)
             };
 
             _userInterface.AddChild(panel);

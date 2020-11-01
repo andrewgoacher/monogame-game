@@ -10,17 +10,22 @@ namespace Game.Core.UI
     {
         private readonly string _font;
         private  SpriteFont _defaultFont;
+        
         private int _drawOrder;
         private bool _enabled = true;
 
         private UserInterface _interface;
         private int _updateOrder;
         private bool _visible = true;
+        private RasterizerState _rasterizerState;
 
         public UserInterfaceComponent(string defaultFont)
         {
             _font = defaultFont;
+            _rasterizerState = new RasterizerState() { ScissorTestEnable = true};
         }
+        
+        internal SpriteBatch Batch { get; set; }
 
         public event EventHandler<EventArgs> DrawOrderChanged;
         public event EventHandler<EventArgs> VisibleChanged;
@@ -47,11 +52,11 @@ namespace Game.Core.UI
 
         public void Draw(GameTime gameTime)
         {
-            if (!Visible || _interface == null) return;
-            var batch = GameCore.Game.Services.GetService<SpriteBatch>();
-            batch.Begin();
-            _interface.Draw(gameTime, batch);
-            batch.End();
+            if (!Visible || _interface == null || Batch == null) return;
+            Batch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
+                null, null, _rasterizerState);
+            _interface.Draw(gameTime, Batch);
+            Batch.End();
         }
 
         public void Initialize()

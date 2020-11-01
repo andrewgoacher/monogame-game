@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 
 namespace Game.Core.UI
@@ -7,27 +6,28 @@ namespace Game.Core.UI
     {
         public static Rectangle Configure(this Rectangle vp, Rectangle bounds)
         {
-            var (vpx, vpy, vpw, vph) = vp;
+            var (vpx, vpy, _, _) = vp;
             var (bx, by, bw, bh) = bounds;
 
-            var ux = vpx + bx;
-            var uy = vpy + by;
+            var offsetX = vpx + bx;
+            var offsetY = vpy + by;
 
-            var rx = ux < vpx ? vpx : ux;
-            var ry = uy < vpy ? vpy : uy;
+            if (offsetX > vp.Right) offsetX = vpx;
+
+            if (offsetY > bounds.Bottom) offsetY = vpy;
+
+            var width = bw;
+            var height = bh;
+
+            if (offsetX + width > vp.Right) width = vp.Right - offsetX;
+
+            if (offsetY + height > vp.Bottom) height = vp.Bottom - offsetY;
 
             return new Rectangle(
-                rx, ry,
-                Clamp(bw, rx, vpw),
-                Clamp(bh, ry, vph)
+                offsetX, offsetY,
+                width,
+                height
             );
-
-            int Clamp(int a, int b, int c)
-            {
-                if (a + b <= c) return a;
-                var rem = c - (a + b);
-                return a - rem;
-            }
         }
     }
 }

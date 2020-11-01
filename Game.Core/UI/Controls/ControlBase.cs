@@ -8,24 +8,15 @@ namespace Game.Core.UI.Controls
     [DebuggerDisplay("{Name}")]
     public abstract class ControlBase : IEquatable<ControlBase>
     {
-        private Rectangle _bounds;
-        private Rectangle _parentRect;
-        private UserInterface _userInterface;
-
         private readonly Guid _controlId = Guid.NewGuid();
+        private Rectangle _bounds;
+
+        private UserInterface _userInterface;
         private string ControlName => GetType().Name;
 
-        private string _name;
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-            }
-        }
-        
+        public IBackground Background { get; set; }
         public bool Enabled { get; set; } = true;
         public bool Visible { get; set; } = true;
 
@@ -34,10 +25,7 @@ namespace Game.Core.UI.Controls
             get => _userInterface;
             internal set
             {
-                if (_userInterface != null)
-                {
-                    throw new ArgumentException();
-                }
+                if (_userInterface != null) throw new ArgumentException();
 
                 _userInterface = value;
             }
@@ -49,11 +37,11 @@ namespace Game.Core.UI.Controls
             set
             {
                 _bounds = value;
-                Reconfigure(_parentRect);
+                Reconfigure(ParentBounds);
             }
         }
 
-        public Rectangle ParentBounds => _parentRect;
+        public Rectangle ParentBounds { get; private set; }
 
         protected Rectangle ViewRect { get; private set; }
 
@@ -63,12 +51,14 @@ namespace Game.Core.UI.Controls
         {
             if (!Visible) return;
 
+            Background?.Draw(batch);
+
             OnDraw(gameTime, batch);
         }
 
         public void Update(GameTime gameTime)
         {
-            if (_userInterface == null) { throw new ArgumentException();}
+            if (_userInterface == null) throw new ArgumentException();
             if (!Enabled) return;
 
             OnUpdate(gameTime);
@@ -85,12 +75,17 @@ namespace Game.Core.UI.Controls
             return Equals((ControlBase) obj);
         }
 
-        public int GetHashCode() => _controlId.GetHashCode();
+        public int GetHashCode()
+        {
+            return _controlId.GetHashCode();
+        }
 
         public void Reconfigure(Rectangle re)
         {
-            _parentRect = re;
+            ParentBounds = re;
             ViewRect = re.Configure(Bounds);
+
+            Background?.Reconfigure(ViewRect);
             OnReconfigureBounds(ViewRect);
         }
 

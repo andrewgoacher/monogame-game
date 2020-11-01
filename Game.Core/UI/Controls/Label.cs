@@ -41,7 +41,10 @@ namespace Game.Core.UI.Controls
 
         protected override void OnDraw(GameTime gameTime, SpriteBatch batch)
         {
+            var curr = batch.GraphicsDevice.ScissorRectangle;
+            batch.GraphicsDevice.ScissorRectangle = ViewRect;
             batch.DrawString(Font, Text, _position, Color);
+            batch.GraphicsDevice.ScissorRectangle = curr;
         }
 
         protected override void OnUpdate(GameTime gameTime)

@@ -5,11 +5,8 @@ namespace Game.Core.UI.Controls
 {
     public class Panel : ContainerBase
     {
-        public IBackground Background { get; set; }
-
         protected override void OnReconfigureBounds(Rectangle re)
         {
-            Background?.Reconfigure(re);
             foreach (var child in Children) child.Reconfigure(re);
         }
 
@@ -19,14 +16,11 @@ namespace Game.Core.UI.Controls
 
             return Equals(Children, otherPanel.Children) &&
                    Enabled == otherPanel.Enabled &&
-                   Visible == otherPanel.Visible &&
-                   Equals(Background, otherPanel.Background);
+                   Visible == otherPanel.Visible;
         }
 
         protected override void OnDraw(GameTime gameTime, SpriteBatch batch)
         {
-            Background?.Draw(batch);
-
             foreach (var child in Children) child.Draw(gameTime, batch);
         }
 

@@ -6,18 +6,19 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Game.Core
 {
-    enum Order
+    internal enum Order
     {
         SCREEN = 0,
         USER_INTERFACE = 1000
     }
+
     public sealed class GameCore : Microsoft.Xna.Framework.Game, IGameCore
     {
         private readonly GameScreenCollection _gameScreenCollection;
 
         private GraphicsDeviceManager _graphics;
-        private UserInterfaceComponent _userInterfaceComponent;
         private SpriteBatch _spriteBatch;
+        private readonly UserInterfaceComponent _userInterfaceComponent;
 
         public GameCore(GameScreenCollection screens)
         {
@@ -30,25 +31,32 @@ namespace Game.Core
             _gameScreenCollection = screens;
             screens.DrawOrder = (int) Order.SCREEN;
             screens.UpdateOrder = (int) Order.SCREEN;
-            
+
             Components.Add(screens);
-            
-            _userInterfaceComponent = new UserInterfaceComponent("Default");
+
+            _userInterfaceComponent =
+                new UserInterfaceComponent("Default");
             _userInterfaceComponent.DrawOrder = (int) Order.USER_INTERFACE;
             _userInterfaceComponent.UpdateOrder = (int) Order.USER_INTERFACE;
-            
+
             Components.Add(_userInterfaceComponent);
-            Services.AddService((IUserInterfaceManager)_userInterfaceComponent);
-            
+            Services.AddService((IUserInterfaceManager) _userInterfaceComponent);
+
             Game = this;
         }
 
         public static IGameCore Game { get; private set; }
 
+        public Rectangle Viewport =>
+            new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+
+        public event EventHandler<Rectangle> ViewportChanged;
+
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            Services.AddService(_spriteBatch);
+            _userInterfaceComponent.Batch = new SpriteBatch(GraphicsDevice);
+                Services.AddService(_spriteBatch);
             _gameScreenCollection.LoadContent();
         }
 
@@ -62,7 +70,7 @@ namespace Game.Core
         }
 
         protected override void Initialize()
-        {    
+        {
             Window.ClientSizeChanged += WindowOnClientSizeChanged;
             base.Initialize();
         }
@@ -78,9 +86,5 @@ namespace Game.Core
 
             base.Draw(gameTime);
         }
-
-        public Rectangle Viewport => 
-            new Rectangle(0,0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-        public event EventHandler<Rectangle> ViewportChanged;
     }
 }

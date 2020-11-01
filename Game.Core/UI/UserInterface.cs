@@ -36,6 +36,7 @@ namespace Game.Core.UI
         public void Reconfigure(Rectangle vp)
         {
             Bounds = vp;
+            _panel.Reconfigure(vp);
             _panel.Bounds = vp;
         }
 
