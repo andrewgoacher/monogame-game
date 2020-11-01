@@ -33,7 +33,7 @@ namespace Game.Shared
             {
                 Background = new ColorBackground(Color.Red),
                 Name = "Red Panel",
-                Bounds = new Rectangle(0, 0, 300, 100),
+                Bounds = new Rectangle(0, 0, 800, 400),
             };
 
             var childPanel = new Panel
@@ -42,18 +42,35 @@ namespace Game.Shared
                 Name = "Yellow Panel",
                 Bounds = new Rectangle(50, 25, 200, 50),
             };
+
+            var counter = 0;
             
             var label = new Label()
             {
-                Text = "Testing, testing, 1,2,3...\nTesting, testing, 1,2,3...\nTesting, testing, 1,2,3...\nTesting, testing, 1,2,3...",
+                Text = "Not clicked",
                 Name = "Label",
                 Bounds = new Rectangle(0,10,200, 30),
                 Color = Color.Black,
                 Background = new ColorBackground(Color.Gray)
             };
+    
+            var button = new Button()
+            {
+                Name = "Button",
+                Background = new ColorBackground(Color.Green),
+                Bounds = new Rectangle(50, 200, 50, 50)
+            };
+
+            button.Clicked += (sender, args) =>
+            {
+                counter += 1;
+                var additional = counter == 1 ? "" : "s";
+                label.Text = $"Clicked {counter} time{additional}";
+            };
 
             _userInterface.AddChild(panel);
             panel.AddChild(childPanel);
+            panel.AddChild(button);
             childPanel.AddChild(label);
         }
 

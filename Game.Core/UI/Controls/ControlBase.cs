@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Game.Core.UI.Controls
 {
     [DebuggerDisplay("{Name}")]
-    public abstract class ControlBase : IEquatable<ControlBase>
+    public abstract class ControlBase
     {
         private readonly Guid _controlId = Guid.NewGuid();
         private Rectangle _bounds;
@@ -45,8 +45,6 @@ namespace Game.Core.UI.Controls
 
         protected Rectangle ViewRect { get; private set; }
 
-        public abstract bool Equals(ControlBase other);
-
         public void Draw(GameTime gameTime, SpriteBatch batch)
         {
             if (!Visible) return;
@@ -69,15 +67,8 @@ namespace Game.Core.UI.Controls
         protected abstract void OnDraw(GameTime gameTime, SpriteBatch batch);
         protected abstract void OnUpdate(GameTime gameTime);
 
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((ControlBase) obj);
-        }
 
-        public int GetHashCode()
+        public override int GetHashCode()
         {
             return _controlId.GetHashCode();
         }

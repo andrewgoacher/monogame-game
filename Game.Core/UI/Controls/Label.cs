@@ -16,20 +16,6 @@ namespace Game.Core.UI.Controls
         public SpriteFont Font { get; set; }
         public Color Color { get; set; } = Color.White;
 
-        public override bool Equals(ControlBase other)
-        {
-            if (other == null) return false;
-            if (other is Label lbl)
-                return lbl.Font == Font &&
-                       lbl.Enabled == Enabled &&
-                       lbl.Visible == Visible &&
-                       lbl.Text?.Equals(Text) == true &&
-                       lbl.Bounds == Bounds &&
-                       lbl.Color == Color;
-
-            return false;
-        }
-
         protected internal override void OnAdd(ControlBase parent)
         {
             base.OnAdd(parent);
